@@ -1,0 +1,191 @@
+
+package day2;
+
+public class student {
+	private int rollno;
+	private String name;
+	
+	public student()
+	{
+		System.out.println("in student default constructor....");
+	}
+	public student(int roll,String nm)
+	{
+		rollno=roll;
+		name=nm;
+	}
+	int getRollno()
+	{
+		return rollno;
+	}
+     String getName()
+     {
+    	 return name;
+     }
+     public void showStud()
+     {
+    	 System.out.println("Rollno: " +rollno+"\nName: " +name);
+     }
+}
+
+
+package day2;
+
+public class test {
+public static void main(String args[])
+{
+	student s1=new student();
+	//s1.showStud();
+	System.out.println(s1.getRollno());        or  //int r=s1.getRollno();
+                                                                                 system.out.print(r);
+	System.out.println(s1.getName());
+	student s2=new student(7,"shefali");
+	//s2.showStud();
+	System.out.println(s2.getRollno());
+	System.out.println(s2.getName());
+}
+}
+
+
+in student default constructor....
+Rollno: 0
+Name: null
+Rollno: 7
+Name: shefali
+
+========================================================================================================================
+//
+package day2;
+
+public class Employees {
+	private int empid;
+	private String ename;
+	private int sal;               //right click-source-getters and setters
+	public int getEmpid() {
+		return empid;
+	}
+	public void setEmpid(int empid) {
+		this.empid = empid;
+	}
+	public String getEname() {
+		return ename;
+	}
+	public void setEname(String ename) {
+		this.ename = ename;
+	}
+	public int getSal() {
+		return sal;
+	}
+	public void setSal(int sal) {
+		this.sal = sal;
+	}
+
+}
+-----------------------------------------
+package day2;
+
+public class TestEmp {
+	public static void main(String[] args)  //right click-source-constructors with fields
+	{
+		Employees e1=new Employees();
+		e1.setEmpid(22);
+		e1.setEname("shefali");
+		e1.setSal(70000);
+		System.out.println(e1.getEmpid());
+		System.out.println(e1.getEname());
+		System.out.println(e1.getSal());
+	}
+
+}
+=================================================================================
+//using constructor
+
+package day2;
+
+public class Emp {
+	private int empid;
+	private String ename;
+	private int sal;
+	
+	public Emp() {
+		super();
+	}
+
+	public Emp(int empid, String ename, int sal) {
+		super();
+		this.empid = empid;
+		this.ename = ename;
+		this.sal = sal;
+	}
+   public void showDetails()	
+   {
+	   System.out.println("empid is "+empid+"\n ename is "+ename+"\n salary is "+sal);
+   }
+}
+-------------------------------------------------------------------------
+
+package day2;
+
+public class TestEmp1 {
+	public static void main(String[] args)
+	{
+		Emp e1=new Emp();
+		e1.showDetails();
+		Emp e2=new Emp(16,"shef",45698);
+		e2.showDetails();
+	}
+
+}
+
+empid is 0
+ ename is null
+ salary is 0
+empid is 16
+ ename is shef
+ salary is 45698
+============================================================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

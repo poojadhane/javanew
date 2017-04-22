@@ -1,0 +1,137 @@
+containment:- "has a" / "is a part of"  relation.........object within an object.
+
+eg.like the one used in varray! new cust("CUST102",458796214,new address(415612,"MG Road"));
+
+Interface:-
+data should be final/static/public.
+methods should be abstract/public.
+
+"interfaces has abstrat methods"
+
+need not define all the methods, but if we dont need any method and wont to keep it blank make the class abstract.
+
+package intefaces;
+
+import java.util.Scanner;
+
+public class doctor implements MyInteface{
+	private String degree;
+	private String name;
+	Scanner sc=new Scanner(System.in);
+	@Override
+	public void getData() {
+		this.degree=sc.next();
+		this.name=sc.next();
+		
+	}
+	@Override
+	public void putData() {
+		System.out.println("degree is "+this.degree);
+		System.out.println("name is "+this.name);
+	
+	}
+	
+		
+	}
+-------------------------------------------------------
+
+package intefaces;
+
+public interface MyInteface {
+	public void getData();
+	public void putData();
+	
+}
+------------------------------------------------------
+
+package intefaces;
+
+public class Clinic {
+public static void main(String[] args) {
+	doctor d=new doctor();
+	d.getData();
+	d.putData();
+	System.out.println(d.hashCode());
+}
+}
+
+-------------------------------------------------------
+
+USE OF HASHCODE:-
+MBBS
+POOJA
+degree is MBBS
+name is POOJA
+28737396
+
+---------------------------------------------------------
+STRINGBUFFER:
+------------------------------------------------------
+MATH CLASS:-The Math class is final so you cannot inherit this class
+------------------------------------------------------------------------------
+
+WRAPPER CLASS:-
+package day4;
+
+public class WrapperDemo {
+public static void main(String[] args) {
+	//boxing
+	int val=10;
+	Integer i=new Integer(val);
+	//unboxing
+	int temp=i.intValue();
+	System.out.println(temp);
+}
+}
+
+o/p:=10
+------------------------------------------------------------------------
+package day4;
+
+public class SbufferDmo {
+public static void main(String[] args) {
+	String s="Tom";
+	System.out.println(s.hashCode());
+	s=s.concat("  Jerry");
+	System.out.println(s.hashCode());
+
+	o/p:=84274
+	       -2075507316
+	
+	StringBuffer sb1=new StringBuffer("Tom");
+	System.out.println(sb1.hashCode());
+	sb1=sb1.append("  Jerry");
+	System.out.println(sb1.hashCode());
+
+	o/p:=11394033
+	        11394033
+
+	
+	StringBuilder sb2=new StringBuilder("Tom");
+	System.out.println(sb2.hashCode());
+	sb2=sb2.append("  Jerry");
+	System.out.println(sb2.hashCode());
+
+	o/p:=4384790
+	        4384790
+	
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

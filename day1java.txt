@@ -1,0 +1,74 @@
+package day1;
+
+public class Demo1 {
+	public static void main(String a[])
+	{
+		int i=10;
+		System.out.println("i is "+i);
+		char ch='A';
+		System.out.println("ch is "+ch);
+		float fval=1.2f;
+		System.out.println("fval is "+fval);
+		double dval=2.3;
+		System.out.println("dval is "+dval);
+		boolean bval=true;
+		System.out.println("bval is "+bval);
+		//predefined  class- String
+		String name="Shefali";
+		}
+
+}
+
+
+package day1;
+
+public class Demo1 {
+	public static void main(String a[])
+	{
+		int num1=5,num2=4,sum;
+		sum=num1+num2;
+		System.out.println("ans of addition of "+num1+"  and  "+num2+" is "+sum);
+
+		}
+}
+
+String name="Shefali";
+	System.out.println(name);
+
+
+int arr[]=new int[5];
+		arr[0]=1; arr[1]=2; arr[2]=34; arr[3]=87; arr[4]=54;
+		System.out.println("number of elements  "+arr.length);
+	     for (int i = 0; i < arr.length; i++) {
+			System.out.println(arr[i]);
+
+
+number of elements  5
+1
+2
+34
+87
+54
+
+//string is not a datatype bt can be used to display a string.
+//local var should always be initialised eg int 1=10;
+//whatever args we pass to main method are cmd line args
+
+//reference is a pointer
+
+int n1=Integer.parseInt(args[0]);
+		int n2=Integer.parseInt(args[1]);
+		int sum=n1+n2;
+		System.out.println("Sum is "+sum);
+		System.out.println("arg 1 "+args[0]);
+		System.out.println("arg 2 "+args[1]);
+		System.out.println("number of args passed "+args.length)
+
+Sum is 20
+arg 1 10
+arg 2 10
+number of args passed 2
+
+
+
+

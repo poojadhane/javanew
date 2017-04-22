@@ -1,0 +1,89 @@
+package day5;
+
+import java.util.Scanner;
+
+public class que1 
+{
+public static void main(String[] args) 
+{
+	try
+	{
+	Scanner sc=new Scanner(System.in);
+	int[] arr=new int[10];
+	arr[0]=1; arr[1]=2; arr[2]=3;
+	arr[3]=4; arr[4]=5; arr[5]=6;
+	arr[6]=7; arr[7]=8; arr[8]=9;
+	arr[9]=10;
+			System.out.println("for array");
+			System.out.println("enter the index: ");
+			int idx=sc.nextInt();
+			System.out.println("element at that index: "+arr[idx]);
+	}
+	catch(ArrayIndexOutOfBoundsException a)
+	{
+		System.out.println("for array please enter values between 0 to 9");
+	}
+			
+	
+}
+}
+--------------------------------------------------------------------------------------------------------------
+package day5;
+
+public class que2 
+{
+	private String custNo;
+	private String custName;
+	private String category;
+	public que2(String custNo, String custName, String category) throws InvalidInputException {
+		super();
+		if(custNo.startsWith("c")||custNo.startsWith("C")&&custName.length()>=4&&category.equals("Platinum")||category.equals("Gold"))
+		{
+			this.custNo = custNo;
+			this.custName = custName;
+			this.category = category;
+		}
+		else
+			throw new InvalidInputException("invalid entry");
+	}
+	@Override
+	public String toString() {
+		return "que2 [custNo=" + custNo + ", custName=" + custName
+				+ ", category=" + category + "]";
+	}
+}
+-------------------
+package day5;
+
+public class InvalidInputException extends Exception
+{
+
+	public InvalidInputException(String message) {
+		super(message);
+		
+	}
+}
+-------------------
+
+package day5;
+
+import java.util.Scanner;
+
+public class Testque2 
+{
+public static void main(String[] args) 
+{
+	Scanner sc=new Scanner(System.in);
+	que2 a;
+	try
+	{
+		a=new que2(sc.next(), sc.next(),sc.next());
+		System.out.println(a);
+	}
+	catch (InvalidInputException e) 
+	{
+		//e.printStackTrace();
+		System.out.println(e.getMessage());
+	}
+}
+}

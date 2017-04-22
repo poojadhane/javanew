@@ -1,0 +1,422 @@
+que1]
+package day7;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Scanner;
+
+public class que1 
+{
+	private ArrayList<String> names=new ArrayList<String>();
+	
+	public void setNames()
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("enter no of elements to be entered");
+		int n=sc.nextInt();
+		System.out.println("enter names");
+		
+		for (int i = 0;i<n;i++)
+		{
+			String s1=sc.next();
+			names.add(s1);
+		}
+	}
+		public void searchNames(String s)
+		{
+	if(names.contains(s))
+	{
+		System.out.println("name found");
+	}
+	else
+	{
+		System.out.println("name not found");
+	}
+		}
+		
+		public void searchName(int index)
+		{
+			String m=names.get(1);
+			System.out.println(m);
+		}
+		
+		public void printNames( ) 
+		{
+			Iterator i=names.iterator();
+			while(i.hasNext())
+			{
+				System.out.println(i.next());
+			}
+		}
+		
+		public void removeName( String stuName ) 
+		{
+			System.out.println(names.remove(stuName));
+		}
+
+}
+------------------------------------------------------------------------------------------------------
+
+package day7;
+
+public class testque1 {
+
+	public static void main(String[] args)
+	{
+		que1 q=new que1();
+		
+		q.setNames();
+		System.out.println("-------------------------------");
+		q.searchNames("pooja");
+		System.out.println("-------------------------------");
+		q.searchName(2);
+		System.out.println("-------------------------------");
+		q.printNames();
+		System.out.println("-------------------------------");
+		q.removeName("abcd");
+		System.out.println("-------------------------------");
+		q.printNames();
+
+	}
+
+}
+------------------------------------------------------------------------------------------------------
+o/p
+enter no of elements to be entered
+
+4
+enter names
+pooja
+shraddha
+abcd
+simran
+-------------------------------
+name found
+-------------------------------
+shraddha
+-------------------------------
+pooja
+shraddha
+abcd
+simran
+-------------------------------
+true
+-------------------------------
+pooja
+shraddha
+simran
+
+======================================================================================================
+
+que2]
+package day7;
+
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class que2 
+{
+	Scanner sc=new Scanner(System.in);
+HashMap<String, String> empnames=new HashMap<String, String>();
+
+public void setNames( ) 
+{
+	System.out.println("enter no of elements to be entered");
+	int n=sc.nextInt();
+	
+	for (int i = 0;i<n;i++)
+	{
+		System.out.println("enter values");
+		System.out.println("the"+(i+1)+"th value is");
+		empnames.put(sc.next(),sc.next());
+		
+	}
+}
+
+public void printNames( ) 
+{
+	System.out.println(empnames);
+}
+
+public void getName(String key) 
+{
+	System.out.println(empnames.containsKey(key));
+}
+
+public void printNamesKeySet( ) 
+{
+	System.out.println(empnames.keySet());
+}
+
+public void printSize( ) 
+{
+	System.out.println(empnames.size());
+}
+
+public void remove(String key) 
+{
+	System.out.println(empnames.remove(key));
+}
+
+}
+-------------------------------------------------------
+package day7;
+
+import java.util.Scanner;
+
+public class TestQue2 {
+
+	public static void main(String[] args) 
+	
+	{
+		Scanner sc=new Scanner(System.in);
+		que2 q=new que2();
+		q.setNames();
+		System.out.println("---------------printnames--------------");
+		q.printNames();
+		System.out.println("---------------getnames--------------");
+		q.getName(sc.next());
+		System.out.println("---------------printnames--------------");
+		q.printNamesKeySet();
+		System.out.println("---------------printsize--------------");
+		q.printSize();
+		System.out.println("---------------remove--------------");
+		q.remove(sc.next());	
+		System.out.println("---------------new names--------------");
+		q.printNames();
+	}
+}
+
+-------------------------------------------------------------------------------
+o/p:-
+enter no of elements to be entered
+2
+enter values
+the1th value is
+abc123
+shefali
+enter values
+the2th value is
+abc234
+pooja
+---------------printnames--------------
+{abc234=pooja, abc123=shefali}
+---------------getnames--------------
+abc123
+true
+---------------printnames--------------
+[abc234, abc123]
+---------------printsize--------------
+2
+---------------remove--------------
+abc123
+shefali
+---------------new names--------------
+{abc234=pooja}
+================================================================================
+que3]
+3.Create a class TestTreeSet having main method. Perform following functionality:
+•Create a TreeSet having name Product of type String.  
+•Store different product names. Try to add duplicate product names.  
+•Print all product names using iterator.   
+•Print the first and last product names
+•Print the size of TreeSet
+•Remove a particular product from TreeSet
+•Again verify the size of TreeSet
+
+
+package day7;
+
+import java.util.Iterator;
+import java.util.Scanner;
+import java.util.TreeSet;
+
+public class que3 {
+	Scanner sc=new Scanner(System.in);
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		TreeSet Product=new TreeSet();
+		System.out.println("enter no of values to be entered");
+		int n=sc.nextInt();
+		for(int i=0;i<n;i++)
+		{
+			System.out.println("enter the values");
+			System.out.println("value for " +(i+1)+" th product");
+			Product.add(sc.next());
+		}
+		System.out.println("--------------------------------");
+		Iterator i=Product.iterator();
+		while(i.hasNext())
+		{
+			System.out.println(i.next());
+		}
+		System.out.println("--------------------------------");
+		System.out.println(Product.first());
+		System.out.println(Product.last());
+		System.out.println("--------------------------------");
+		System.out.println(Product.size());
+		System.out.println("--------------------------------");
+		System.out.println(Product.remove("shefu"));
+		System.out.println("--------------------------------");
+		System.out.println(Product.size());
+	}
+
+}
+-----------------------------------------------------------------------
+enter no of values to be entered
+4
+enter the values
+value for 1 th product
+shefu
+enter the values
+value for 2 th product
+pooja
+enter the values
+value for 3 th product
+abc
+enter the values
+value for 4 th product
+tre
+--------------------------------
+abc
+pooja
+shefu
+tre
+--------------------------------
+abc
+tre
+--------------------------------
+4
+--------------------------------
+true
+--------------------------------
+3
+
+=========================================================
+
+que4]
+package day7;
+
+public class que4 implements Comparable {
+	private int rollNo;
+	private String name;
+	
+	public que4(int rollNo, String name) {
+		super();
+		this.rollNo = rollNo;
+		this.name = name;
+	}
+
+	public int getRollNo() {
+		return rollNo;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+
+	@Override
+	public int compareTo(Object o) {
+		que4 s=(que4) o;
+		if(this.rollNo<s.rollNo)
+		return -1;
+		else if(this.rollNo>s.rollNo)
+			return 1;
+		else
+		return 0;
+	}
+
+	@Override
+	public String toString() {
+		return "que4 [rollNo=" + rollNo + ", name=" + name + "]";
+	}
+
+	
+	
+	
+}
+
+
+--------------------------------------------------------------------------------------------------------
+
+
+
+package day7;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+
+
+public class Testque4 
+{
+public static void main(String[] args) 
+{
+ArrayList <que4> s=new ArrayList<que4>();
+
+	s.add(new que4(81,"shefali"));
+	s.add(new que4(42,"pooja"));
+	s.add(new que4(78,"mrudu"));
+	s.add(new que4(22,"simran"));
+	s.add(new que4(12,"shraddha"));
+	
+	Iterator i=s.iterator();
+	while(i.hasNext())
+	{
+		System.out.println(i.next());
+	}
+	System.out.println("-----------SORTED DATA---------------");
+	
+Collections.sort(s);
+//System.out.println(s);
+Iterator i1=s.iterator();
+while(i1.hasNext())
+{
+	System.out.println(i1.next());
+}
+	
+}
+}
+--------------------------------------------------------------------------------------------------------
+o/p:-
+que4 [rollNo=81, name=shefali]
+que4 [rollNo=42, name=pooja]
+que4 [rollNo=78, name=mrudu]
+que4 [rollNo=22, name=simran]
+que4 [rollNo=12, name=shraddha]
+-----------SORTED DATA---------------
+que4 [rollNo=12, name=shraddha]
+que4 [rollNo=22, name=simran]
+que4 [rollNo=42, name=pooja]
+que4 [rollNo=78, name=mrudu]
+que4 [rollNo=81, name=shefali]
+
+==========================================================================================
+
+que5] only change
+@Override
+	public int compareTo(Object o) 
+	{
+		que4 s=(que4) o;
+		int r=this.name.compareTo(s.name);
+		if(r<0)
+			return -1;
+		else if(r>0)
+			return 1;
+		else return 0;
+	}
+
+o/p:-
+que4 [rollNo=81, name=shefali]
+que4 [rollNo=42, name=pooja]
+que4 [rollNo=78, name=mrudu]
+que4 [rollNo=22, name=simran]
+que4 [rollNo=12, name=shraddha]
+-----------SORTED DATA---------------
+que4 [rollNo=78, name=mrudu]
+que4 [rollNo=42, name=pooja]
+que4 [rollNo=81, name=shefali]
+que4 [rollNo=12, name=shraddha]
+que4 [rollNo=22, name=simran]

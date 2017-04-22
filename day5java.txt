@@ -1,0 +1,257 @@
+EXCEPTION HANDLING:-
+
+BASE CLASS OF THROWABLE CLASS IS OBJECT.
+THROWABLE:-1.EXCEPTION
+	        2.ERROR
+
+CHECKED EXCEPTION:-Compiler will show error(user defined exception)
+UNCHECKED EXCEPTION:-execution time error(predefined exceptions)
+
+
+TRY BLOCK:-statements that might throw exception are to be written here.
+CATCH BLOCK:-it catches exceptions, that is action to be performed if exception occurs.
+THROW BLOCK:-it is used to throw an exception obj.
+THROWS BLOCK:-it indicates that the method may throw an exception.
+FINALLY BLOCK:-the block that executes before the object memorry is deallocated. 
+
+
+eg
+package day5;
+
+import java.util.Scanner;
+
+public class Demo1 
+{
+public static void main(String[] args) 
+{
+Scanner sc=new Scanner(System.in);	
+System.out.println("enter the numerator");
+int num=sc.nextInt();
+System.out.println("enter denominator");
+int den=sc.nextInt();
+try
+{
+float ans=num/den;
+System.out.println("ans is "+ans);
+}
+catch(ArithmeticException a)  /catch(Exception a)/catch(Throwable a) will also do!!  bcz exception is part of throwable class
+{
+	System.out.println("please enter non zero value for denominator");
+	
+}
+}
+}
+
+enter the numerator
+5
+enter denominator
+0
+please enter non zero value for denominator
+====================================================================================
+
+1. try-catch/try-finally.
+2. multiple try-catch blocks.
+3. one try and multiple catch blocks.
+4.one try and multiple catch blocks,finally.
+
+===============================================================================
+2.multiple try-catch blocks:-
+eg.
+package day5;
+
+import java.util.Scanner;
+
+public class Demo1 
+{
+public static void main(String[] args) 
+{
+Scanner sc=new Scanner(System.in);	
+try
+{
+int arr[]=new int[4];
+arr[0]=1;
+arr[1]=2;
+arr[2]=3;
+arr[3]=4;
+System.out.println("for array");
+System.out.println("enter the index: ");
+int idx=sc.nextInt();
+System.out.println("character at entered index is= "+arr[idx]);
+}
+catch(ArrayIndexOutOfBoundsException a)
+{
+	System.out.println("for array please enter values between 0 to 3");
+}
+try
+{
+String str="Ganesh";
+System.out.println("for string");
+System.out.println("enter the index: ");
+int idx=sc.nextInt();
+System.out.println("element at entered index is= "+str.charAt(idx));
+}
+catch(StringIndexOutOfBoundsException s)
+{
+	System.out.println("for string please enter values between 0 to 5");
+}
+
+================================================================================
+3. one try and multiple catch blocks.
+eg.
+Scanner sc=new Scanner(System.in);	
+		try
+		{
+			int arr[]=new int[4];
+			arr[0]=1;
+			arr[1]=2;
+			arr[2]=3;
+			arr[3]=4;
+			System.out.println("for array");
+			System.out.println("enter the index: ");
+			int idx=sc.nextInt();
+			System.out.println("character at entered index is= "+arr[idx]);
+			String str="Ganesh";
+			System.out.println("for string");
+			System.out.println("enter the index: ");
+			 idx=sc.nextInt();
+			System.out.println("element at entered index is= "+str.charAt(idx));
+		}
+		catch(ArrayIndexOutOfBoundsException a)
+		{
+			System.out.println("for array please enter values between 0 to 3");
+		}
+		
+		catch(StringIndexOutOfBoundsException s)
+		{
+			System.out.println("for string please enter values between 0 to 5");
+		}
+
+
+o/p:-for array
+enter the index: 
+8
+for array please enter values between 0 to 3
+
+============================================================================
+catch(ArrayIndexOutOfBoundsException a)
+		{
+			System.out.println("for array please enter values between 0 to 3");
+		}
+		
+		catch(StringIndexOutOfBoundsException s)
+		{
+			System.out.println("for string please enter values between 0 to 5");
+		}
+		catch(Exception e)
+		{
+			System.out.println("enter valid value");
+		}
+---------------------------------------------------------------------
+any other type of exception will be handled by exception e
+================================================================================
+
+USER_DEFINED EXCEPTIONS:-
+
+package day5;
+
+public class AccountException extends Exception 
+{
+	//1. toString or 2.Constructor or 3.parameterized constructor(taking string arg)
+	public AccountException(String message) 
+	{
+		super(message);
+		
+	}
+}
+--------------------------------------------------------------------
+package day5;
+
+public class Account 
+{
+	private String accId;  //should start with ACC and accId length must be 6
+	private String accType;
+	public String getAccId() 
+	{
+		return accId;
+	}
+	public void setAccId(String accid) throws AccountException
+	{
+		if(accid.startsWith("ACC")&&accid.length()==6)
+		this.accId = accid;
+		else
+			throw new AccountException("invalid account id");
+	}
+	public String getAccType() 
+	{
+		return accType;
+	}
+	public void setAccType(String accType) 
+	{
+		this.accType = accType;
+	}
+	@Override
+	public String toString() {
+		return "Account [accId=" + accId + ", accType=" + accType + "]";
+	}
+}
+
+------------------------------------------------------------------------------
+package day5;
+
+import java.util.Scanner;
+
+public class Bank 
+{
+public static void main(String[] args)
+{
+	Scanner sc=new Scanner(System.in);
+	Account a=new Account();
+	try
+	{
+		a.setAccId(sc.next());
+	} 
+	catch (AccountException e) 
+	{
+		//e.printStackTrace();
+		System.out.println(e.getMessage());
+	}
+	a.setAccType(sc.next());
+	System.out.println(a);
+}
+}
+
+
+======================================================================
+using constructor
+
+bank.java
+Scanner sc=new Scanner(System.in);
+	try
+	{
+		Account a=new Account(sc.next(), sc.next());
+		System.out.println(a);
+	} 
+	catch (AccountException e) 
+	{
+		//e.printStackTrace();
+		System.out.println(e.getMessage());
+	}
+
+---------------------------------------------------------------------
+account.java
+public Account(String accId, String accType) throws AccountException 
+	{
+		super();
+		if(accId.startsWith("ACC")&&accId.length()==6)
+		this.accId = accId;
+		else
+			throw new AccountException("invalid account id");
+		this.accType = accType;
+	}
+
+========================================================================================================
+
+
+
+
+

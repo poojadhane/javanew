@@ -1,0 +1,41 @@
+package day6;
+
+public class que1 extends Thread 
+{
+@Override
+public void run() 
+{
+	System.out.println("implementing thread 1");
+}
+
+}
+--------------------------------------------------------------------
+package day6;
+
+public class que11 extends Thread 
+{
+	@Override
+	public void run()
+	{
+		System.out.println("implementing thread 2");
+	}
+
+}
+------------------------------------------------------------------------
+package day6;
+
+public class Tesetque1 
+{
+public static void main(String[] args) 
+{
+	que1 q1=new que1();
+	q1.setPriority(Thread.NORM_PRIORITY);
+	q1.start();
+	System.out.println(q1.getPriority());
+	que11 q2=new que11();
+	q2.setPriority(Thread.MAX_PRIORITY);
+	q2.start();
+	System.out.println(q2.getPriority());
+}
+}
+

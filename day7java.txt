@@ -1,0 +1,136 @@
+COLLECTION
+
+list takes duplictes
+set doesnot take duplicates
+
+
+ArrayList() 
+           Constructs an empty list with an initial capacity of ten.
+e.g
+package day7;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class ArrayListDemo 
+{
+public static void main(String[] args) 
+{
+	ArrayList a=new ArrayList();
+	a.add(10);
+	a.add('A');
+	a.add(true);
+	a.add("Good");
+	a.add(1.23);
+	a.add(new student(1,"shef"));
+    //one method to display
+	System.out.println(a);
+	//2nd method
+	for(int i=0 ; i<a.size(); i++)
+	{
+		System.out.println(a.get(i));
+	}
+	//3rd method
+	Iterator i=a.iterator();
+	while(i.hasNext())
+	{
+		System.out.println(i.next());
+	}
+	
+}
+}
+-----------------------------------------------------------------------------------
+
+Vector<Integer> v=new Vector<Integer>();    //in order to strictly enter int type of data..same in arraylist also
+can enter datatype as object also lyk Vector<student>.
+
+	Vector v=new Vector(5,10);
+5 is intial capacity
+10 is capacity increment i.e., when vector overflows n adds 6th element the vector adds 10 mem blocks=total elements dat can be stored are 15.
+
+----------------------------------------------------------------------------
+HASHSET:-
+package day7;
+
+import java.util.HashSet;
+
+public class HashSetDemo 
+{
+public static void main(String[] args)
+{
+	HashSet h=new HashSet();
+	h.add('A');
+	h.add(true);
+	h.add("Good");
+	h.add(1.23);
+	System.out.println(h);
+}
+}
+
+doesnot take duplicates
+SAME AS ARRAYLIST BUT UNORDERED....NOT THREADSAFE
+------------------------------------------------------------------------------
+TREESET
+
+import java.util.TreeSet;
+
+public class HashSetDemo 
+{
+public static void main(String[] args)
+{
+	//HashSet h=new HashSet();
+	TreeSet t=new TreeSet();
+	t.add('a');
+	
+	t.add('e');
+	t.add('b');
+	System.out.println(t);
+}
+}
+handles only same kind of datatype and shows o/p in ordered manner(sorted)
+-----------------------------------------------------------------------------------------
+
+HASHMAP:-
+import java.util.HashMap;
+
+
+public class HashMapDemo 
+{
+public static void main(String[] args) 
+{
+	HashMap<Integer, String> hm=new HashMap<Integer, String>();
+	hm.put(2007, "Pooja");
+	hm.put(2017, "Shefali");
+	hm.put(2016, "Simran");
+	hm.put(2015, "Shraddha");
+	System.out.println(hm);
+}
+}
+-----------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

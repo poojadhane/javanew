@@ -1,0 +1,353 @@
+inheritance
+S-Single inheritence     single base class
+M-multiple....               multiple base class
+H-Hierarchial ..........    one base and many derived classes
+M-multilevel               combo of hierarchial and hybrid inheritence
+H-hybrid                    single+hierarchial
+
+
+java doesnot support multiple inheritence
+
+----------------------------//constructor//--------------------------------------------
+package day3;
+
+import java.util.Date;
+
+public class Associate {
+	private int id;
+	private String name;
+	private Date joinDate;
+	public Associate(int id, String name, Date joinDate) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.joinDate = joinDate;
+	}
+	public int getId() {
+		return id;
+	}
+	public String getName() {
+		return name;
+	}
+	public Date getJoinDate() {
+		return joinDate;
+	}
+	@Override
+	public String toString() {
+		return "Associate [id=" + id + ", name=" + name + ", joinDate="
+				+ joinDate + "]";
+	}
+	
+	/*public void showData() {
+		System.out.println("id: "+this.id);
+		System.out.println("name: "+this.name);
+		System.out.println("joining date: "+this.joinDate);*/
+	}
+
+
+--------------------------------------//main method//---------------------------------------------
+package day3;
+
+import java.util.Date;
+
+public class TestInheritance {
+ public static void main(String[] args) {
+	 Date d=new Date((2017-1900),4,14);
+	Associate a=new Associate(10,"Shefali",d);
+	//a.showData();
+	System.out.println(a);
+}
+
+}
+Associate [id=10, name=Shefali, joinDate=Sun May 14 00:00:00 IST 2017]
+
+=========================================================================================================================================
+//refer associate,ellitian,testinheritance
+//trainer,tls,person
+abstract class:-having abs method.
+abstract method only declaration...no defining or calling.
+abstract is generalization..eg data abt that person..but which person?
+therefore, for abstract class, object cannot be created....as the idea is not clear
+
+//upcasting:-base class reference pointing towards derieved class object
+
+eg person t=new trainer();
+
+derieved class methods cannot be called only overriden methods can be called.
+
+//downcasting
+Trainer t=(Trainer) p;
+t,trainerkamethod;
+---------------------------------------------------------------------------------------------------------
+
+package day3;
+//method overloading
+public class Maths {
+int add(int n1,int n2)
+{
+	return (n1+n2);
+}
+double add(double n1,int n2)
+{
+	return (n1+n2);
+}
+float add(int n1,float n2)
+{
+	return (n1+n2);
+}
+public static void main(String[] args)
+{
+	Maths m=new Maths();
+System.out.println(m.add(10, 10));
+System.out.println(m.add(12, 3.4f));
+System.out.println(m.add(32.89, 5));
+}
+}
+
+-----------------------------------------------------------------------------------------------------------
+
+polymorphism:-
+1. compile time:-static/early binding:-method overloading
+2. run time:-dynamic/late binding:-method overriding
+-----------------------------------------------------------------------------------------------------------
+
+
+package day3;
+
+import java.util.Date;
+
+public class Associate {
+	private int id;
+	private String name;
+	private Date joinDate;
+	public Associate(int id, String name, Date joinDate) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.joinDate = joinDate;
+	}
+	public int getId() {
+		return id;
+	}
+	public String getName() {
+		return name;
+	}
+	public Date getJoinDate() {
+		return joinDate;
+	}
+	@Override
+	public String toString() {
+		return "Associate [id=" + id + ", name=" + name + ", joinDate="
+				+ joinDate + "]";
+	}
+	
+	/*public void showData() {
+		System.out.println("id: "+this.id);
+		System.out.println("name: "+this.name);
+		System.out.println("joining date: "+this.joinDate);*/
+	}
+
+----------------------------------------------------------------------------------------------------------------------
+package day3;
+
+import java.util.Date;
+
+public class Ellitian extends Associate {
+	private int groupid;
+	private String mappedIBU;
+	
+	public Ellitian(int id, String name, Date joinDate,int gId,String IBU)
+	{
+		super(id, name, joinDate);
+		this.groupid=gId;
+		this.mappedIBU=IBU;
+	}
+
+	/*@Override
+	public String toString() {
+		return "Ellitian [groupid=" + groupid + ", mappedIBU=" + mappedIBU
+				+ "]";*/
+	public String toString() {
+		return super.toString()+this.groupid+" "+this.mappedIBU;
+	}
+	
+	}
+------------------------------------------------------------------------------------------------------------------------
+
+package day3;
+
+import java.util.Date;
+
+public class TestInheritance {
+ public static void main(String[] args) {
+	 Date d=new Date((2017-1900),4,14);
+	//Associate a=new Associate(10,"Shefali",d);
+	//a.showData();
+	//System.out.println(a);
+	Ellitian e=new Ellitian(22,"Shefali",d,2045,"TUS-06");
+	System.out.println(e);
+	
+}
+
+}
+--------------------------------------------------------------------------------------------------------
+ABSTRACT
+--------------------------------------------------------------------------------------------------------
+
+package day3;
+
+public abstract class Person {
+	private String fname;
+	private String lname;
+	private String address;
+	public Person(String fname, String lname, String address) {
+		super();
+		this.fname = fname;
+		this.lname = lname;
+		this.address = address;
+	}
+	@Override
+	public String toString() {
+		return "Person [fname=" + fname + ", lname=" + lname + ", address="
+				+ address + "]";
+	
+	}
+	
+	public String getFname() {
+		return fname;
+	}
+	public String getLname() {
+		return lname;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public abstract void showDetails();
+}
+--------------------------------------------------------------------------------------------------------------
+
+
+public class Trainer extends Person
+{
+private int num_of_skills;
+private int expInYrs;
+	public Trainer(String fname, String lname, String address,int skills,int exp) {
+		super(fname, lname, address);
+		this.num_of_skills=skills;
+		this.expInYrs=exp;
+	}
+
+	@Override
+	public void showDetails()
+	{
+		
+		System.out.println(this.getFname());
+		System.out.println(this.getLname());
+		System.out.println(this.getAddress());
+		System.out.println(this.num_of_skills);
+		System.out.println(this.expInYrs);
+	}
+public void TrainerKaMethod(){
+	
+}
+
+}
+--------------------------------------------------------------------------------------------------------
+
+package day3;
+
+import java.util.Scanner;
+
+public class TLS {
+public static void main(String[] args)
+{
+	Scanner sc=new Scanner(System.in);
+	//initially Trainet t=new Trainer(sc.next(), sc.next(), sc.next(), sc.nextInt(), sc.nextInt());
+	//upcasting
+	Person p=new Trainer(sc.next(), sc.next(), sc.next(), sc.nextInt(), sc.nextInt());
+	p.showDetails();
+	
+	//downcasting
+	Trainer t=(Trainer) p;
+	t.TrainerKaMethod();
+	
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

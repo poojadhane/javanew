@@ -1,0 +1,221 @@
+1.Create an Employee class with required attributes and behaviors. Create 2 Employee instances and demonstrate the use of equals method to show that it performs shallow comparison (Compares the memory addresses of objects).
+
+package day4;
+
+public class Employee1 {
+private int Empid;
+private String Ename;
+public Employee1(int empid, String ename) 
+{
+	super();
+	Empid = empid;
+	Ename = ename;
+}
+public boolean equals(Object Shefu)
+{
+	Employee1 e1=(Employee1)Shefu;
+	if(this.Empid==e1.Empid&&this.Ename.equals(e1.Ename))
+		
+	{
+	return true;
+	
+	}
+	else
+	{
+	return false;
+	}
+	
+}
+
+public static void main(String[] args) 
+{
+	Employee1 e1=new Employee1(153,"Simran");
+	Employee1 e2=new Employee1(154,"Simran");
+	if(e1.equals(e2))
+	{
+		System.out.println("Strings are equal");
+	}
+	else
+	{
+		System.out.println("Strings are not equal");
+	}
+}
+}
+o/p:-
+Strings are not equal
+-------------------------------------------------------------------------------------
+2.Override the equals method so as to perform deep comparison of the 2 objects (Compares the corresponding attribute values of the 2 objects).
+	
+Also override the hashCode() to return an integer calculated from the empId field
+
+same as first one...use hashcode to compare..but u will never get it equal and also we cannot find hashcode when we are entering arguements!!
+
+-----------------------------------------------------------------------------------------
+3.Demonstrate the difference between String and StringBuilder class and explore the methods in them by referring to the Java API
+package day4;
+
+public class SbufferDmo {
+public static void main(String[] args) {
+	/*String s="Tom";
+	System.out.println(s.hashCode());
+	s=s.concat("  Jerry");
+	System.out.println(s.hashCode());
+	*/
+	/*StringBuffer sb1=new StringBuffer("Tom");
+	System.out.println(sb1.hashCode());
+	sb1=sb1.append("  Jerry");
+	System.out.println(sb1.hashCode());*/
+	
+	StringBuilder sb2=new StringBuilder("Tom");
+	System.out.println(sb2.hashCode());
+	sb2=sb2.append("  Jerry");
+	System.out.println(sb2.hashCode());
+	
+}
+}
+
+-------------------------------------------------------------------------------------------
+4.Create your own package with an interface for commonly used mathematical operations and an implementation for the same. Make use of the math class to implement the operations.
+
+
+package mathsoperations;
+
+public interface operations
+{
+	public void add();
+	public void sub();
+	public void div();
+	public void mul();
+}
+
+-----------------------------------------
+
+package mathsoperations;
+
+import java.util.Scanner;
+
+public class math implements operations {
+private int a;
+private int b;
+Scanner sc=new Scanner(System.in);
+	@Override
+	public void add() {
+		a=sc.nextInt();
+		b=sc.nextInt();
+		int c=a+b;
+		System.out.println(c);
+	}
+
+	@Override
+	public void sub() {
+		int c=a-b;
+		System.out.println(c);
+
+	}
+
+	@Override
+	public void div() {
+		int c=a/b;
+		System.out.println(c);
+
+	}
+
+	@Override
+	public void mul() {
+		int c=a*b;
+		System.out.println(c);
+
+	}
+
+}
+-----------------------------------------------------------
+
+package mathsoperations;
+
+public class answer {
+public static void main(String[] args) 
+{
+	math o=new math();
+	o.add();
+	o.sub();
+	o.div();
+	o.mul();
+	
+}
+}
+-----------------------------------------------------------
+
+10
+5
+15
+5
+2
+50
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

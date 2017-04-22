@@ -1,0 +1,134 @@
+1.Write a program to list all even numbers less than or equal to the number n.  The value of n is given through command line as input to the program.
+
+package day1;
+
+public class Demo1 {
+	public static void main(String args[])
+	{
+		
+		int n1=Integer.parseInt(args[0]);
+		System.out.println("Printing even numbers between 1 and "+n1);
+		for (int i=1;i<=n1;i++)
+		if(i%2==0) {
+		System.out.println(i +" ");
+		}
+			}
+}
+
+Printing even numbers between 1 and 12
+2 4 6 8 10 12
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.Create an array of integers by reading values from the user. Display the sum and average of the integers. Also, display the number of values less than the average.
+
+
+import java.util.Scanner;
+public class Sum_Average
+{
+    public static void main(String[] args) 
+    {
+        int n, sum = 0;
+        float average;
+        Scanner s = new Scanner(System.in);
+        System.out.print("Enter no. of elements you want in array:");
+        n = s.nextInt();
+        int a[] = new int[n];
+        System.out.println("Enter all the elements:");
+        for(int i = 0; i < n ; i++)
+        {
+            a[i] = s.nextInt();
+            sum = sum + a[i];
+        }
+        System.out.println("Sum:"+sum);
+        average = (float)sum / n;
+        System.out.println("Average:"+average);
+	for(int i=0;i<n;i++)
+        	if(average>a[i])
+        	System.out.println(a[i]);
+    }
+}
+
+Enter no. of elements you want in array:5
+Enter all the elements:
+6
+3
+5
+2
+4
+Sum:20
+Average:4.0
+3
+2
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3.Write a program that accepts two numbers and a operator like (+,-,*, /) as command line arguments and perform the appropriate operation indicated by the operator. 
+
+package day1;
+
+public class operations {
+	public static void main(String args[])
+	{
+	int n1=Integer.parseInt(args[0]);
+	int n2=Integer.parseInt(args[1]);
+	char c=args[2].charAt(0);
+
+	switch(c)
+	{
+	case '+':
+		System.out.print("Addition of "+n1+" and "+n2+" : "+(n1+n2));
+		break;
+	case '-':
+		System.out.print("Addition of "+n1+" and "+n2+" : "+(n1-n2));
+		break;
+	case '*':
+		System.out.print("Addition of "+n1+" and "+n2+" : "+(n1*n2));
+		break;
+	case '/':
+		System.out.print("Addition of "+n1+" and "+n2+" : "+(n1/n2));
+		break;
+		default:
+			System.out.print("please enter valid operator");
+	}
+}
+	
+}
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+4.Write a program that accepts a number in the range 1 to 50 from the Command Line. It then compares the number against a single dimension array of five integer elements ranging in value from 1 to 50. The program displays the message BINGO once the given input is found in the array. 
+//still working
+package day1;
+public class bingo {
+	
+	public static void main(String args[])
+	{
+		int n1=Integer.parseInt(args[0]);
+		
+		int arr[]={10,20,30,40,45};
+		for (int i=0;i<arr.length;i++)
+		{
+			if (n1==arr[i])
+			{
+				System.out.println("BINGO");
+			}
+		}
+	}
+	}
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+5.A set of 5 words is given. Write a program to reverse each word and arrange the resulting words in alphabetical order.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
